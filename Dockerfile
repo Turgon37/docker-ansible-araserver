@@ -26,6 +26,7 @@ RUN apk add --no-cache \
       curl \
       mariadb-dev \
       postgresql-dev \
+      tzdata \
     && apk add --no-cache --virtual .build-deps \
       gcc \
       musl-dev \
