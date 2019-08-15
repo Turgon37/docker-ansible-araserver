@@ -18,7 +18,7 @@ FROM python:3.7.1-alpine as base
 
 LABEL maintainer='Pierre GINDRAUD <pgindraud@gmail.com>'
 
-ENV ARA_BASE_DIR /ara/
+ENV ARA_BASE_DIR /ara
 ENV ARA_SETTINGS $ARA_BASE_DIR/settings.yaml
 
 COPY --from=deps /install /usr/local
