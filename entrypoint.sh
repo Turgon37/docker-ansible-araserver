@@ -13,6 +13,11 @@ if [ "$1" = 'gunicorn' ]; then
     ) >> "${django_settings_file}"
   fi
 
+  # Ensure timezone is correctly handled from TZ environment variable
+  if ! grep -qE 'TIME_ZONE.*getenv' "${django_settings_file}"; then
+    sed -i "s/^TIME_ZONE =.*/TIME_ZONE = os.getenv('TZ', 'UTC')/" "${django_settings_file}"
+  fi
+
   # Run db migrations
   ara-manage migrate
 
