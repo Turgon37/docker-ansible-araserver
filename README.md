@@ -1,6 +1,6 @@
 # Docker Ansible ARA Server
 
-[![Build Status](https://travis-ci.org/Turgon37/docker-glpi.svg?branch=master)](https://travis-ci.org/Turgon37/docker-glpi) [![](https://images.microbadger.com/badges/image/turgon37/glpi.svg)](https://microbadger.com/images/turgon37/glpi "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/turgon37/glpi.svg)](https://microbadger.com/images/turgon37/glpi "Get your own version badge on microbadger.com")
+[![Build Status](https://travis-ci.org/Turgon37/docker-ansible-araserver.svg?branch=master)](https://travis-ci.org/Turgon37/docker-ansible-araserver) [![](https://images.microbadger.com/badges/image/turgon37/ansible-araserver.svg)](https://microbadger.com/images/turgon37/ansible-araserver "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/turgon37/ansible-araserver.svg)](https://microbadger.com/images/turgon37/ansible-araserver "Get your own version badge on microbadger.com")
 
 This image contains an instance of ARA Server API served by gunicorn
 
@@ -16,15 +16,19 @@ This image contains an instance of ARA Server API served by gunicorn
 | -------------- | -------------------- |
 | 8080/tcp       | HTTP web application |
 
- * This image takes theses environnements variables as parameters
+* This image takes theses environnements variables as parameters
 
 | Environment               | Type             | Usage                                                                           |
 | --------------------------|----------------- | ------------------------------------------------------------------------------- |
 
-   * The following volumes are exposed by this image
+In addition, all ARA internal environment variables are available, see [ARA documentation](https://ara.readthedocs.io/en/latest/api-configuration.html#configuration-variables)
 
-| Volume             | Usage                                            |
-| ------------------ | ------------------------------------------------ |
+
+* The following volumes are exposed by this image
+
+| Volume | Usage                                                        |
+| ------ | ------------------------------------------------------------ |
+| /ara   | ARA working directory, contains settings and SQLite database |
 
 
 ## Todo
