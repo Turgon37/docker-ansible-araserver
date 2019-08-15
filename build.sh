@@ -40,7 +40,7 @@ if ! [ -f ${DOCKERFILE_PATH} ]; then
   echo 'You must select a valid dockerfile with DOCKERFILE_PATH' 1>&2
   exit 1
 fi
-if [ -n ${IMAGE_VARIANT} ]; then
+if [[ -n "${IMAGE_VARIANT}" ]]; then
   image_building_name="${DOCKER_IMAGE}:building_${IMAGE_VARIANT}"
   echo "-> set image variant '${IMAGE_VARIANT}' for build"
 else
