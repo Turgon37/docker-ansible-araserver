@@ -2,6 +2,18 @@
 set -e
 
 if [ "$1" = 'gunicorn' ]; then
+  ara_path=`python -m ara.setup.path`
+
+  # Add missing secure proxy header setting in django settings
+  django_settings_file="${ara_path}/server/settings.py"
+  if [[ -f "$django_settings_file" ]] && ! grep -q SECURE_PROXY_SSL_HEADER $django_settings_file; then
+    (
+      echo "if settings.exists('SECURE_PROXY_SSL_HEADER'):"
+      echo "  SECURE_PROXY_SSL_HEADER = tuple(settings.get('SECURE_PROXY_SSL_HEADER').split('='))"
+    ) >> "${django_settings_file}"
+  fi
+
+  # Run db migrations
   ara-manage migrate
 
   shift # "gunicorn"

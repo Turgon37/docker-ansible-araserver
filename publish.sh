@@ -75,16 +75,18 @@ done
 image_final_tags=`echo -n "${image_final_tags[*]}" | tr ' ' '\n' | uniq | tr '\n' ' '`
 echo "-> use final image tags list '${image_final_tags}'"
 
-## Enforce versioning
-for tag in $image_final_tags; do
-  if echo "$tag" | grep -q "$image_version"; then
-    echo "-? check if image version '$image_version' already exists in registry"
-    if curl -s "https://hub.docker.com/v2/repositories/${username}/${repo}/tags/?page_size=100" | grep -q '"name": "'${tag}'"'; then
-      echo "ERROR: Tag '${tag}' for image version '$image_version' already exists in registry" 1>&2
-      exit 0
+## Enforce versioning only for production branch
+if [[ "$VCS_BRANCH" == "$PRODUCTION_BRANCH" ]]; then
+  for tag in $image_final_tags; do
+    if echo "$tag" | grep -q "$image_version"; then
+      echo "-? check if image version '$image_version' already exists in registry"
+      if curl -s "https://hub.docker.com/v2/repositories/${username}/${repo}/tags/?page_size=100" | grep -q '"name": "'${tag}'"'; then
+        echo "ERROR: Tag '${tag}' for image version '$image_version' already exists in registry" 1>&2
+        exit 0
+      fi
     fi
-  fi
-done
+  done
+fi
 
 ## Login to registry
 echo "$DOCKERHUB_REGISTRY_PASSWORD" | docker login --username="$DOCKERHUB_REGISTRY_USERNAME" --password-stdin
