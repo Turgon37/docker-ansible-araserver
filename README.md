@@ -18,10 +18,11 @@ This image contains an instance of ARA Server API served by gunicorn
 
 * This image takes theses environnements variables as parameters
 
-| Environment                 | Type   | Usage                                                                                                                                                     |
-| ----------------------------|--------| --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ARA_SECURE_PROXY_SSL_HEADER | String | Tuple of HTTP "header=value" which contains forwarded proto from proxy, (see https://docs.djangoproject.com/fr/2.2/ref/settings/#secure-proxy-ssl-header) |
-| TZ                          | String | Set the timezone                                                                                                                                          |
+| Environment                 | Type    | Usage                                                                                                                                                     |
+| ----------------------------|---------| --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ARA_SECURE_PROXY_SSL_HEADER | String  | Tuple of HTTP "header=value" which contains forwarded proto from proxy, (see https://docs.djangoproject.com/fr/2.2/ref/settings/#secure-proxy-ssl-header) |
+| DJANGO_RUN_MIGRATIONS       | Boolean | Enable the django "migrate" command on container startup                                                                                                  |
+| TZ                          | String  | Set the timezone                                                                                                                                          |
 
 
 In addition, all ARA internal environment variables are available, see [ARA documentation](https://ara.readthedocs.io/en/latest/api-configuration.html#configuration-variables)

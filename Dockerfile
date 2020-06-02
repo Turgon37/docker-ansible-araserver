@@ -19,6 +19,7 @@ FROM python:3.8-alpine
 LABEL maintainer='Pierre GINDRAUD <pgindraud@gmail.com>'
 
 ENV ARA_BASE_DIR /ara
+ENV DJANGO_RUN_MIGRATIONS true
 
 COPY --from=deps /install /usr/local
 

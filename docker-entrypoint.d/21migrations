@@ -3,4 +3,6 @@
 set -e
 
 # Run db migrations
-ara-manage migrate
+if [ -n "${DJANGO_RUN_MIGRATIONS}" ] && [ "${DJANGO_RUN_MIGRATIONS}" = 'true' ]; then
+  ara-manage migrate
+fi
