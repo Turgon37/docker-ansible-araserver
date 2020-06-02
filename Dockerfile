@@ -23,19 +23,21 @@ ENV ARA_BASE_DIR /ara
 COPY --from=deps /install /usr/local
 
 RUN apk add --no-cache \
-      curl \
-      mariadb-dev \
-      postgresql-dev \
-      tzdata \
-    && apk add --no-cache --virtual .build-deps \
-      gcc \
-      musl-dev \
-      python3-dev \
-    && pip install --no-cache-dir \
-      mysqlclient \
-      psycopg2 \
-    && apk del .build-deps \
-    && mkdir /ara
+       curl \
+       libpq \
+       mariadb-connector-c \
+       tzdata \
+  && apk add --no-cache --virtual .build-deps \
+       gcc \
+       mariadb-dev \
+       musl-dev \
+       postgresql-dev \
+       python3-dev \
+  && pip install --no-cache-dir \
+       mysqlclient \
+       psycopg2 \
+  && apk del .build-deps \
+  && mkdir /ara
 
 VOLUME ["/ara"]
 
