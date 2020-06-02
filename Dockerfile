@@ -1,7 +1,7 @@
 #
 # First stage : download dependancies
 #
-FROM python:3.7.1 as deps
+FROM python:3.8-alpine as deps
 
 ARG ARA_VERSION
 
@@ -14,7 +14,7 @@ RUN mkdir /install \
 #
 # Second stage : install ara
 #
-FROM python:3.7.1-alpine as base
+FROM python:3.8-alpine
 
 LABEL maintainer='Pierre GINDRAUD <pgindraud@gmail.com>'
 
