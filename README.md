@@ -1,12 +1,18 @@
 # Docker Ansible ARA Server
 
-[![Build Status](https://travis-ci.org/Turgon37/docker-ansible-araserver.svg?branch=master)](https://travis-ci.org/Turgon37/docker-ansible-araserver) [![](https://images.microbadger.com/badges/image/turgon37/ansible-araserver.svg)](https://microbadger.com/images/turgon37/ansible-araserver "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/turgon37/ansible-araserver.svg)](https://microbadger.com/images/turgon37/ansible-araserver "Get your own version badge on microbadger.com")
+[![Build Status](https://travis-ci.org/Turgon37/docker-ansible-araserver.svg?branch=master)](https://travis-ci.org/Turgon37/docker-ansible-araserver)
+[![](https://images.microbadger.com/badges/image/turgon37/ansible-araserver.svg)](https://microbadger.com/images/turgon37/ansible-araserver "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/turgon37/ansible-araserver.svg)](https://microbadger.com/images/turgon37/ansible-araserver "Get your own version badge on microbadger.com")
 
 This image contains an instance of ARA Server API served by gunicorn
 
 :warning: Take care of the [changelogs](CHANGELOG.md) because some breaking changes may happend between versions.
 
 ## Supported tags and respective Dockerfile links
+
+* gunicorn embedded [Dockerfile](https://github.com/Turgon37/docker-ansible-araserver/blob/master/Dockerfile)
+
+    * `latest`
 
 ## Docker Informations
 
