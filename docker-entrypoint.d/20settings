@@ -2,7 +2,7 @@
 
 set -e
 
-ara_path=`python -m ara.setup.path`
+ara_path=$(python -m ara.setup.path)
 
 ## Add missing secure proxy header setting in django settings
 #django_settings_file="${ara_path}/server/settings.py"
