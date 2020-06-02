@@ -46,7 +46,8 @@ EXPOSE 8080/tcp
 HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
     CMD curl --silent --fail http://localhost:8080 || exit 1
 
-COPY /entrypoint.sh /
+COPY /docker-entrypoint.sh /
+COPY /docker-entrypoint.d/* /docker-entrypoint.d/
 
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["gunicorn", "--workers", "4"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["gunicorn", "--workers", "4" ]
