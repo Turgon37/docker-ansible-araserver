@@ -8,8 +8,8 @@ ARG ARA_VERSION
 COPY requirements.txt /
 
 RUN mkdir /install \
-    && pip install --install-option="--prefix=/install" -r /requirements.txt \
-    && pip install --install-option="--prefix=/install" 'ara[server]=='$ARA_VERSION
+  && pip install --prefix /install --requirement /requirements.txt \
+  && pip install --prefix /install 'ara[server]=='$ARA_VERSION
 
 #
 # Second stage : install ara
