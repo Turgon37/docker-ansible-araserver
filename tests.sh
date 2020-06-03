@@ -8,7 +8,7 @@ DOCKER_IMAGE="${DOCKER_REPO:-ansible-araserver}"
 set -e
 
 image_building_name="${DOCKER_IMAGE}:building"
-docker_run_options='--detach'
+#docker_run_options='--detach'
 echo "-> use image name '${image_building_name}' for tests"
 
 
