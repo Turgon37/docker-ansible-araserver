@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+# Run db migrations
+if [ -n "${DJANGO_RUN_MIGRATIONS}" ] && [ "${DJANGO_RUN_MIGRATIONS}" = 'true' ]; then
+  ara-manage migrate
+fi

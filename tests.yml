@@ -1,0 +1,13 @@
+schemaVersion: 2.0.0
+
+metadataTest:
+  exposedPorts: ["8080"]
+  volumes: ["/ara"]
+
+commandTests:
+  - name: ARA successfully installed
+    command: test
+    args:
+      - '-f'
+      - /usr/local/bin/ara-manage
+    exitCode: 0
